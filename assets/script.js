@@ -16,8 +16,13 @@ $(document).ready(function () {
   });
 
 
- var currentDay = dayjs().format('DDDD MMMM, DD')
-    $("currentTime").text(currentDay);
+ var currentTime = dayjs().format('dddd MMMM DD')
+    $('#currentDay').text(currentTime);
+
+    function displayCurrentDate(){
+
+
+    }
 
     var scheduleARR = [];
 
@@ -25,6 +30,23 @@ $(document).ready(function () {
       scheduleARR.push(timeSlot().hour(i).format('h,a'));
     }
     console.log(scheduleARR);
+
+
+    function setColors() {
+      var currentTime = moment().hours();
+      console.log(currentTime);
+      $('.time-block').each(function () {
+        var timeId = $(this).attr('id');
+        console.log(currentTime > timeId); 
+        if (currentTime > timeId) {
+        $(this).addClass('past');
+       } else if (currentTime < timeId) {
+        $(this).addClass('future').removeClass('past present');
+       } else { 
+        $(this).addClass('present').removeClass('past future');
+       }
+      });
+    }
 
 
 
