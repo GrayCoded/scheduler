@@ -1,20 +1,19 @@
 $(document).ready(function () {
+  
+var currentTime = dayjs().format("dddd MMMM DD hh:mm") ;
+$("#currentDay").text(currentTime);
+
   $(".saveBtn").on("click", function () {
         console.log(this);
         var value = $(this).siblings(".description").val();
         var time = $(this).parent().attr('id');
+      
         console.log(time);
        
 
         localStorage.setItem(time, value);
       });
      
-});
-
-  
-
-var currentTime = dayjs().format("dddd MMMM DD");
-$("#currentDay").text(currentTime);
 
 
 for (var i = 9; i < 17; i++) {
@@ -22,19 +21,17 @@ for (var i = 9; i < 17; i++) {
   if (thisHr) {
     console.log(thisHr);
   }
-    
 }
-
-
 
 function setColors() {
   console.log(currentTime);
   $(".time-block").each(function () {
     var time = $(this).attr("id");
-    console.log(currentTime > time);
-    if (currentTime > time) {
-      $(this).addClass("past");
-    } else if (currentTime < time) {
+    time = time.replace("hour-", "");
+
+    if (currentTime < time) {
+      $(this).addClass("past").removeClass("present future");
+    } else if (currentTime > time) {
       $(this).addClass("future").removeClass("past present");
     } else {
       $(this).addClass("present").removeClass("past future");
@@ -75,3 +72,5 @@ function userSched() {
 
 setColors();
 userSched();
+
+});
