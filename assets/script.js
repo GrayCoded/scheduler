@@ -4,7 +4,7 @@ $(document).ready(function () {
         var value = $(this).siblings(".description").val();
         var time = $(this).parent().attr('id');
         console.log(time);
-       // var hour = .;
+       
 
         localStorage.setItem(time, value);
       });
@@ -28,14 +28,13 @@ for (var i = 9; i < 17; i++) {
 
 
 function setColors() {
-  //var currentTime = hour();
   console.log(currentTime);
   $(".time-block").each(function () {
-    var timeId = $(this).attr("id");
-    console.log(currentTime > timeId);
-    if (currentTime > timeId) {
+    var time = $(this).attr("id");
+    console.log(currentTime > time);
+    if (currentTime > time) {
       $(this).addClass("past");
-    } else if (currentTime < timeId) {
+    } else if (currentTime < time) {
       $(this).addClass("future").removeClass("past present");
     } else {
       $(this).addClass("present").removeClass("past future");
@@ -44,32 +43,33 @@ function setColors() {
 }
 
 
+
 function userSched() {
-  var s1 = localStorage.getItem("1");
+  var s1 = localStorage.getItem("hour-9");
   $("#hour-9").children(".description").text(s1);
 
-  var s2 = localStorage.getItem("2");
+  var s2 = localStorage.getItem("hour-10");
   $("#hour-10").children(".description").text(s2);
 
-  var s3 = localStorage.getItem("3");
+  var s3 = localStorage.getItem("hour-11");
   $("#hour-11").children(".description").text(s3);
 
-  var s4 = localStorage.getItem("4");
+  var s4 = localStorage.getItem("hour-12");
   $("#hour-12").children(".description").text(s4);
 
-  var s5 = localStorage.getItem("5");
+  var s5 = localStorage.getItem("hour-13");
   $("#hour-13").children(".description").text(s5);
 
-  var s6 = localStorage.getItem("6");
+  var s6 = localStorage.getItem("hour-14");
   $("#hour-14").children(".description").text(s6);
 
-  var s7 = localStorage.getItem("7");
+  var s7 = localStorage.getItem("hour-15");
   $("#hour-15").children(".description").text(s7);
 
-  var s8 = localStorage.getItem("8");
+  var s8 = localStorage.getItem("hour-16");
   $("#hour-16").children(".description").text(s8);
 
-  var s9 = localStorage.getItem("9");
+  var s9 = localStorage.getItem("hour-17");
   $("#hour-17").children(".description").text(s9);
 }
 
