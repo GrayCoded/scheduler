@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 var currentDate = dayjs().format("dddd MMMM DD") ;
 $("#currentDay").text(currentDate);
-var currentTime =dayjs().format("HH");
+var currentTime = dayjs().format("HH");
 
   $(".saveBtn").on("click", function () {
         console.log(this);
@@ -28,12 +28,12 @@ function setColors() {
 
   console.log(currentTime);
   $(".time-block").each(function () {
-    var time = $(this).attr("id");
+    time = $(this).attr("id");
     time = time.replace("hour-", "");
 
-    if (currentTime < time) {
+    if (currentTime > time) {
       $(this).addClass("past").removeClass("present future");
-    } else if (currentTime > time) {
+    } else if (currentTime < time) {
       $(this).addClass("future").removeClass("present past");
     } else {
       $(this).addClass("present").removeClass("past future");
