@@ -31,6 +31,3 @@ Usage
 
 
 
-License
-
-Refer to Repo
