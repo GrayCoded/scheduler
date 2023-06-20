@@ -1,16 +1,16 @@
 $(document).ready(function () {
-  
-var currentTime = dayjs().format("dddd MMMM DD hh:mm") ;
-$("#currentDay").text(currentTime);
+
+
+var currentDate = dayjs().format("dddd MMMM DD") ;
+$("#currentDay").text(currentDate);
+var currentTime =dayjs().format("HH");
 
   $(".saveBtn").on("click", function () {
         console.log(this);
         var value = $(this).siblings(".description").val();
         var time = $(this).parent().attr('id');
-      
         console.log(time);
-       
-
+      
         localStorage.setItem(time, value);
       });
      
@@ -24,6 +24,8 @@ for (var i = 9; i < 17; i++) {
 }
 
 function setColors() {
+
+
   console.log(currentTime);
   $(".time-block").each(function () {
     var time = $(this).attr("id");
@@ -32,12 +34,13 @@ function setColors() {
     if (currentTime < time) {
       $(this).addClass("past").removeClass("present future");
     } else if (currentTime > time) {
-      $(this).addClass("future").removeClass("past present");
+      $(this).addClass("future").removeClass("present past");
     } else {
       $(this).addClass("present").removeClass("past future");
     }
   });
 }
+setColors();
 
 
 
@@ -70,7 +73,7 @@ function userSched() {
   $("#hour-17").children(".description").text(s9);
 }
 
-setColors();
-userSched();
 
+userSched();
 });
+
