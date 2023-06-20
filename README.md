@@ -11,7 +11,7 @@ Past will be grey, present will be red, and future will be green.
 
 Installation
 
-Click on this link to load it ==>
+Click on this link to load it ==>https://graycoded.github.io/scheduler/
 
 
 Usage
